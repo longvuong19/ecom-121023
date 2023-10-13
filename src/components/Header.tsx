@@ -3,6 +3,7 @@ import Container from "./Container";
 import Logo from "./Logo";
 import { IoMdCart } from "react-icons/io";
 import { FiSearch } from "react-icons/fi";
+import { AiOutlineUser } from "react-icons/ai";
 
 const Header = () => {
   return (
@@ -21,8 +22,19 @@ const Header = () => {
         </div>
 
         {/* Login/Register */}
+        <div className="headerDiv">
+          <AiOutlineUser className="text-2xl" />
+          <p className="text-sm font-semibold">Login/Register</p>
+        </div>
 
         {/* Cart Button */}
+        <div className="cartDiv">
+          <IoMdCart className="text-xl" />
+          <p className="text-sm font-semibold">$0.00</p>
+          <span className="bg-white text-orange-600 rounded-full text-xs font-semibold absolute -right-2 -top-1 w-5 h-5 flex items-center justify-center shadow-xl shadow-black">
+            0
+          </span>
+        </div>
       </Container>
     </div>
   );

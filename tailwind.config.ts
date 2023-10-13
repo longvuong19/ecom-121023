@@ -1,4 +1,4 @@
-import defaultTheme from "tailwindcss/defaultTheme";
+const defaultTheme = require("tailwindcss/defaultTheme");
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -9,11 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // backgroundImage: {
-      //   "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-      //   "gradient-conic":
-      //     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      // },
+      backgroundImage: {
+        "main-bg": "url('/bg-img.jpeg')",
+      },
       fontFamily: {
         bodyFont: ["Urbanist", ...defaultTheme.fontFamily.sans],
       },
@@ -22,9 +20,6 @@ const config: Config = {
         bgLight: "#1010100d",
         darkText: "#242424",
         lightText: "#a5a5a5",
-      },
-      backgroundImage: {
-        "main-bg": "url(/bg-img.jpeg)",
       },
     },
   },
