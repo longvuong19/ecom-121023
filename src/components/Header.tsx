@@ -11,10 +11,10 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 const Header = () => {
   const { data: session } = useSession();
-  console.log(session);
+  // console.log(session);
 
   return (
-    <div className="bg-bodyColor h-20">
+    <div className="bg-bodyColor h-20 top-0 sticky z-50">
       <Container className="h-full flex items-center md:gap-x-5 justify-between md:justify-start">
         <Logo />
 
