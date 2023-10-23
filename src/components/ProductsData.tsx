@@ -6,8 +6,13 @@ import { IoIosStar } from "react-icons/io";
 import Image from "next/image";
 import FormattedPrice from "./FormattedPrice";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/redux/shoppingSlice";
+import toast, { Toaster } from "react-hot-toast";
 
 const ProductsData = ({ item }: ItemProps) => {
+  const dispatch = useDispatch();
+
   const starArray = Array.from({ length: item?.rating }, (_, index) => (
     <span key={index} className="text-yellow-400">
       <IoIosStar />
@@ -51,7 +56,18 @@ const ProductsData = ({ item }: ItemProps) => {
 
           <div className="flex items-center justify-between">
             {/* Add to card btn */}
-            <button className="bg-orange-600 px-4 py-2 text-sm tracking:wide rounded-full text-slate-100 hover:bg-orange-800 hover:text-white duration-200">
+            <button
+              onClick={() =>
+                dispatch(addToCart(item)) &&
+                toast.success(
+                  `${item?.title.substring(
+                    0,
+                    100
+                  )} has been added to your cart!`
+                )
+              }
+              className="bg-orange-600 px-4 py-2 text-sm tracking:wide rounded-full text-slate-100 hover:bg-orange-800 hover:text-white duration-200"
+            >
               Add to card
             </button>
 
@@ -60,6 +76,7 @@ const ProductsData = ({ item }: ItemProps) => {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };
