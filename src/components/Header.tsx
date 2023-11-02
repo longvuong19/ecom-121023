@@ -13,6 +13,7 @@ import { Products, StateProps } from "../../type";
 import FormattedPrice from "./FormattedPrice";
 import Link from "next/link";
 import { addUser, deleteUser } from "@/redux/shoppingSlice";
+import { BsBookmarks } from "react-icons/bs";
 
 const Header = () => {
   const { data: session } = useSession();
@@ -91,6 +92,17 @@ const Header = () => {
             height={44}
             className="rounded-full object-cover cursor-pointer"
           />
+        )}
+
+        {/* Order Btn */}
+        {orderData?.order?.length > 0 && session && (
+          <Link
+            href={`/order`}
+            className="headerDiv px-2 gap-x-1 cursor-pointer"
+          >
+            <BsBookmarks className="text-2xl" />
+            <p className="text-sm font-semibold">Orders</p>
+          </Link>
         )}
 
         {/* Log Out Btn */}
